@@ -187,6 +187,7 @@ fig.add_scattergl(x=df.index, y=df.Close.where(df.Close <= df.Open[0]),
                   line={'color': 'red'},name='Down trend')
 fig.add_hline(y=df.Open[0], line={'color': 'grey'}, name='Trend')
 fig.update_layout(go.Layout(xaxis={'showgrid':True},
+                            line={'color': 'grey'},
                   yaxis={'showgrid': True}),
                   title=f'{dic1[select_token]} Daily Trends in Comparison to Open Price',
                   yaxis_title=f'Price ({select_fiat})', 
