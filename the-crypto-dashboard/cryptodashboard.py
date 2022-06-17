@@ -184,10 +184,10 @@ fig.add_scattergl(x=df.index, y=df.Close,
 fig.add_scattergl(x=df.index, y=df.Close.where(df.Close <= df.Open[0]), 
                   line={'color': 'red'},name='Down trend')
 fig.add_hline(y=df.Open[0])
-fig.update_layout(go.Layout(xaxis = {'showgrid':True},
-                  yaxis = {'showgrid':True}),
+fig.update_layout(go.Layout(xaxis = {'showgrid':False},
+                  yaxis = {'showgrid':False}),
                   title=f'{dic1[select_token]} Daily Trends in Comparison to Open Price',
-                    yaxis_title=f'Price ({select_fiat})',template='plotly_dark',
+                    yaxis_title=f'Price ({select_fiat})',template="plotly_dark",
                     xaxis_rangeslider_visible=False)
 st.plotly_chart(fig, use_container_width=True)
 
