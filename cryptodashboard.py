@@ -179,11 +179,10 @@ st.markdown(f'''
 df = yf.download(tickers=f'{select_token}-{select_fiat}', period = '1d', interval = '1m')
 
 # Plotly line chart
-#fig = go.Figure()
-#pio.templates.default = 'plotly_dark'
-pio.templates['plotly_dark'] = templated_fig.layout.template
-fig = go.Figure(layout={'title': f'{dic1[select_token]} Daily Trends in Comparison to Open Price',
-                         'template': 'plotly_dark'})
+fig = go.Figure()
+pio.templates.default = 'plotly_dark'
+
+
 fig.add_scattergl(x=df.index, y=df.Close, 
                   line={'color': 'green'},name='Up trend')
 fig.add_scattergl(x=df.index, y=df.Close.where(df.Close <= df.Open[0]), 
