@@ -177,10 +177,10 @@ st.markdown(f'''
 
 # download daily crypto prices from Yahoo Finance
 df = yf.download(tickers=f'{select_token}-{select_fiat}', period = '1d', interval = '1m')
-
+pio.templates.default = 'plotly_dark'
 # Plotly line chart
 fig = go.Figure()
-pio.templates.default = 'plotly_dark'
+
 
 
 fig.add_scattergl(x=df.index, y=df.Close, 
