@@ -184,8 +184,8 @@ fig.add_scattergl(x=df.index, y=df.Close,
 fig.add_scattergl(x=df.index, y=df.Close.where(df.Close <= df.Open[0]), 
                   line={'color': 'red'},name='Down trend')
 fig.add_hline(y=df.Open[0])
-fig.update_layout(go.Layout(xaxis={'showgrid': True},
-                  yaxis={'showgrid': True}),
+fig.update_layout(go.Layout(xaxis={'showgrid':False},
+                  yaxis={'showgrid': False}),
                   title=f'{dic1[select_token]} Daily Trends in Comparison to Open Price',
                   yaxis_title=f'Price ({select_fiat})', template='plotly_dark',
                     xaxis_rangeslider_visible=False)
@@ -222,7 +222,7 @@ data=[go.Table(columnwidth = [20,15,15,15,15],
                 header=dict(values=[f"<b>{col}</b>" for col in cols_to_show],
                 font=dict(color='white', size=20),
                 height=30,
-                line_color='black',
+                line_color='gray',
                 fill_color='dimgrey',
                 align=['left','left', 'right','right','right']),
                 cells=dict(values=df_scrape[cols_to_show].values.T,
@@ -233,6 +233,6 @@ data=[go.Table(columnwidth = [20,15,15,15,15],
                align=['left','left', 'right','right','right']))]
 
 fig = go.Figure(data=data)
-fig.update_layout(go.Layout(xaxis = {'showgrid': False},
-                  yaxis = {'showgrid': False}))
+fig.update_layout(go.Layout(xaxis = {'showgrid': True},
+                  yaxis = {'showgrid': True}))
 st.plotly_chart(fig, use_container_width=True)
