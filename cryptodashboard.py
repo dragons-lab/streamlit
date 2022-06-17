@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 import plotly.graph_objs as go
 import plotly.io as pio
-pio.templates
+
 from bs4 import BeautifulSoup
 import requests
 from datetime import datetime
@@ -180,6 +180,7 @@ df = yf.download(tickers=f'{select_token}-{select_fiat}', period = '1d', interva
 
 # Plotly line chart
 #fig = go.Figure()
+pio.templates
 fig = go.Figure(layout={'title': f'{dic1[select_token]} Daily Trends in Comparison to Open Price',
                          'template': 'plotly_dark'})
 fig.add_scattergl(x=df.index, y=df.Close, 
