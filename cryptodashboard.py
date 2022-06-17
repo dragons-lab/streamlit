@@ -155,8 +155,8 @@ fig = go.Figure(data=
                 go.Scatter(x=df.index, y=df.MA100, 
                             line=dict(color='red',width=1),name='MA100')])
     
-fig.update_layout(go.Layout(xaxis = {'showgrid': False},
-                  yaxis = {'showgrid': False}),
+fig.update_layout(go.Layout(xaxis = {'showgrid': True},
+                  yaxis={'showgrid': True}),
                   title=f'{dic1[select_token]} Price Fluctuation with Moving Averages',
                     yaxis_title=f'Price ({select_fiat})', 
                     xaxis_rangeslider_visible=False)
@@ -184,10 +184,10 @@ fig.add_scattergl(x=df.index, y=df.Close,
 fig.add_scattergl(x=df.index, y=df.Close.where(df.Close <= df.Open[0]), 
                   line={'color': 'red'},name='Down trend')
 fig.add_hline(y=df.Open[0])
-fig.update_layout(go.Layout(xaxis = {'showgrid': False},
-                  yaxis = {'showgrid': False}),
+fig.update_layout(go.Layout(xaxis={'showgrid': True},
+                  yaxis={'showgrid': True}),
                   title=f'{dic1[select_token]} Daily Trends in Comparison to Open Price',
-                    yaxis_title=f'Price ({select_fiat})',template='plotly_dark',
+                    yaxis_title=f'Price ({select_fiat})',template= 'plotly_dark',
                     xaxis_rangeslider_visible=False)
 st.plotly_chart(fig, use_container_width=True)
 
