@@ -180,7 +180,7 @@ df = yf.download(tickers=f'{select_token}-{select_fiat}', period = '1d', interva
 
 # Plotly line chart
 #fig = go.Figure()
-pio.templates
+pio.templates.default = 'plotly_dark'
 fig = go.Figure(layout={'title': f'{dic1[select_token]} Daily Trends in Comparison to Open Price',
                          'template': 'plotly_dark'})
 fig.add_scattergl(x=df.index, y=df.Close, 
